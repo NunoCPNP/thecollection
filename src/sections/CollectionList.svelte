@@ -4,7 +4,9 @@
     import CollectionItem from "../components/CollectionItem.svelte"
     import Loading from "../components/Loading.svelte"
 
+    let filter = ""
     let collection = []
+    let filteredCollection = []
     let loading = true
 
     onMount(async () => {
@@ -12,16 +14,22 @@
         let data = await cenas.json()
 
         collection = data.releases
+        filteredCollection = collection
         loading = false
     })
+
+    const filterCollection = () => filteredCollection = collection.filter((item) =>  item.basic_information.artists[0].name.toLowerCase().includes(filter.toLowerCase()))
 </script>
 
 <main>
     {#if loading}
         <Loading />
     {:else}
+        <div>
+            <input bind:value={filter} on:input={filterCollection}/>
+        </div>
         <div class="container">
-            {#each collection as item}
+            {#each filteredCollection as item}
                 <CollectionItem  item={item} />
             {/each}
         </div>

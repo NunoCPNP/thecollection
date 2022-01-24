@@ -20,10 +20,10 @@
         --heading-1: 3.125rem;
         --heading-2: 2.5rem;
         --heading-3: 2rem;
-        --heading-4: 1.6rem;;
+        --heading-4: 1.6rem;
         --heading-5: 1.28rem;
         --heading-6: 1.024rem;
-        --heading-7: 0.819rem;;
+        --heading-7: 0.819rem;
     }
 
     :global(body) {
