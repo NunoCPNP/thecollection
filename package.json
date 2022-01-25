@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "axios": "0.21.4",
-    "sirv-cli": "^2.0.0"
+    "sirv-cli": "^2.0.0",
+    "svelte-routing": "^1.6.0"
   }
 }

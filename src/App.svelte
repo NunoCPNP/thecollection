@@ -1,12 +1,20 @@
 <script>
-    import Header from "./sections/Header.svelte"
-    import CollectionList from "./sections/CollectionList.svelte"
-    import Footer from "./sections/Footer.svelte"
+    import { Router, Route, Link } from "svelte-routing"
+    
+    import Home from "./pages/Home.svelte"
+    import Header from "../sections/Header.svelte"
+    import Footer from "../sections/Footer.svelte"
+
+    export let url = ""
 </script>
 
-<Header />
-<CollectionList />
-<Footer />
+<Router url="{url}">
+    <Header />
+    <Route path="/">
+        <Home />
+    </Route>
+    <Footer />
+</Router>
 
 <style>
     :global(:root) {

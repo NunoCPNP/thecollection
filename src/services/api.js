@@ -20,7 +20,7 @@ const apiRequest = (method, url, request) => {
       });
 };
 
-const get = (url, request) => apiRequest("get",url,request);
+const get = (url, request) => apiRequest("get", url, request);
 
 const API = { get };
 

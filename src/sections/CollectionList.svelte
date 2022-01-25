@@ -1,43 +1,23 @@
-<script>
-    import { onMount } from "svelte"
-
-    import API from "../services/api"
-    
+<script>    
     import CollectionItem from "../components/CollectionItem.svelte"
-    import Loading from "../components/Loading.svelte"
+
+    export let collection
 
     let filter = ""
-    let collection = []
     let filteredCollection = []
-    let loading = true
-
-    onMount(async () => {
-        const response = await API.get("/users/nunocpereira/collection/folders/0/releases?token=QdmYHANUrrzjZEMfqWSSgbsUhrScCWDTRTtIrhGk&sort=artist")
-        
-        collection = response.releases
-        filteredCollection = collection
-        
-        loading = false
-    })
-
+    
     const filterCollection = () => filteredCollection = collection.filter((item) =>  item.basic_information.artists[0].name.toLowerCase().includes(filter.toLowerCase()))
 </script>
 
-<main>
-    {#if loading}
-        <Loading />
-    {:else}
-        <div class="form__group field">
-            <input type="input" class="form__field" placeholder="Search" name="search" id='search' bind:value={filter} on:input={filterCollection} required />
-            <label for="search" class="form__label">SEARCH BY BAND</label>
-        </div>
-        <div class="container">
-            {#each filteredCollection as item}
-                <CollectionItem  item={item} />
-            {/each}
-        </div>
-    {/if}
-</main>
+<div class="form-group field">
+    <input type="input" class="form-field" placeholder="Search" name="search" id='search' bind:value={filter} on:input={filterCollection} required />
+    <label for="search" class="form-label">SEARCH BY BAND</label>
+</div>
+<div class="container">
+    {#each filteredCollection as item}
+        <CollectionItem  item={item} />
+    {/each}
+</div>
 
 <style>
     .container {
@@ -50,7 +30,7 @@
         grid-gap: 2rem;
     }
 
-    .form__group {
+    .form-group {
         display:flex;
         position: relative;
         padding: 2rem 0;
@@ -58,7 +38,7 @@
         width: 40%;
     }
 
-    .form__field {
+    .form-field {
         font-family: inherit;
         width: 100%;
         border: 0;
@@ -71,17 +51,17 @@
         transition: border-color 0.2s;
     }
 
-    .form__field::placeholder {
+    .form-field::placeholder {
         color: transparent;
     }
 
-    .form__field:placeholder-shown ~ .form__label {
+    .form-field:placeholder-shown ~ .form-label {
         font-size: 1.3rem;
         cursor: text;
         top: 20px;
     }
 
-    .form__label {
+    .form-label {
         position: absolute;
         top: 0;
         display: block;
@@ -90,7 +70,7 @@
         color: var(--eggShell);
     }
 
-    .form__field:focus {
+    .form-field:focus {
         padding-bottom: 6px;
         font-weight: 700;
         border-width: 3px;
@@ -98,7 +78,7 @@
         border-image-slice: 1;
     }
 
-    .form__field:focus ~ .form__label {
+    .form-field:focus ~ .form-label {
         position: absolute;
         top: 0;
         display: block;
@@ -108,7 +88,7 @@
         font-weight: 700;
     }
 
-    .form__field:required, .form__field:invalid {
+    .form-field:required, .form-field:invalid {
         box-shadow: none;
     }
 </style>
