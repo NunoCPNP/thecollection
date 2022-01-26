@@ -1,12 +1,12 @@
 <script>    
     import CollectionItem from "../components/CollectionItem.svelte"
 
-    export let collection
+    import { collection } from "../store/store"
 
     let filter = ""
-    let filteredCollection = collection
+    let filteredCollection = $collection
     
-    const filterCollection = () => filteredCollection = collection.filter((item) =>  item.basic_information.artists[0].name.toLowerCase().includes(filter.toLowerCase()))
+    const filterCollection = () => filteredCollection = $collection.filter((item) =>  item.basic_information.artists[0].name.toLowerCase().includes(filter.toLowerCase()))
 </script>
 
 <div class="form-group field">
@@ -36,6 +36,12 @@
         padding: 2rem 0;
         margin: 0 auto;
         width: 40%;
+    }
+
+    @media only screen and (max-width: 780px) {
+        .form-group {
+            width: 80%;
+        }
     }
 
     .form-field {
