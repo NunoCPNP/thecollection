@@ -4,7 +4,7 @@
     export let collection
 
     let filter = ""
-    let filteredCollection = []
+    let filteredCollection = collection
     
     const filterCollection = () => filteredCollection = collection.filter((item) =>  item.basic_information.artists[0].name.toLowerCase().includes(filter.toLowerCase()))
 </script>
