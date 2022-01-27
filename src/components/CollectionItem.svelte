@@ -13,6 +13,7 @@
 		cover={item.basic_information.cover_image}
 		alt={item.basic_information.title}
 		year={item.basic_information.year}
+		id={item.id}
 	/>
 	<div class="text-container">
 		<Band band={item.basic_information.artists[0].name} />
