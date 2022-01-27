@@ -1,10 +1,10 @@
 <script>
-    import Header from '../sections/Header.svelte';
+	import Header from '../sections/Header.svelte';
 	import Footer from '../sections/Footer.svelte';
 </script>
 
 <Header />
-<slot></slot>
+<slot />
 <Footer />
 
 <style>

@@ -12,7 +12,7 @@
 		));
 </script>
 
-<div class="form-group field">
+<div class="form-group">
 	<input
 		type="input"
 		class="form-field"

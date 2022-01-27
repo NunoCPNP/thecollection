@@ -15,6 +15,10 @@
 </div>
 
 <style>
+	a {
+		color: inherit;
+	} 
+
 	.image-container {
 		position: relative;
 	}

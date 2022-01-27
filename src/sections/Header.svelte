@@ -1,12 +1,19 @@
 <header>
 	<nav>
 		<div class="title">
-			<h1>The Collection</h1>
+			<a href="/">
+				<h1>The Collection</h1>
+			</a>
 		</div>
 	</nav>
 </header>
 
 <style>
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
 	header {
 		background-color: var(--blackCoral);
 		margin-bottom: 1rem;
