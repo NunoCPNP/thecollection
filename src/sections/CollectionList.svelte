@@ -33,13 +33,9 @@
 
 <style>
 	.container {
-		margin: auto;
-		padding: 2rem 2rem 8rem 2rem;
-		min-height: 100vh;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-		max-width: 120rem;
 		grid-gap: 2rem;
+		grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 	}
 
 	.form-group {

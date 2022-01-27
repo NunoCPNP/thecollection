@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosAPI = axios.create({
-	baseURL: 'https://api.discogs.com'
+	baseURL: 'https://api.discogs.com',
 });
 
 const apiRequest = (method, url, request) => {

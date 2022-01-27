@@ -10,11 +10,19 @@
 	let loading = true;
 
 	onMount(async () => {
+		if(sessionStorage.getItem("collection-data")) {
+			collection.set(JSON.parse(sessionStorage.getItem("collection-data")))
+			loading = false
+
+			return
+		}
+
 		const response = await API.get(
 			'/users/nunocpereira/collection/folders/0/releases?token=QdmYHANUrrzjZEMfqWSSgbsUhrScCWDTRTtIrhGk&sort=artist'
 		);
 
 		collection.set(response.releases);
+		sessionStorage.setItem("collection-data", JSON.stringify(response.releases))
 		loading = false;
 	});
 </script>
@@ -30,3 +38,11 @@
 		<CollectionList />
 	{/if}
 </main>
+
+<style>
+	main {
+		padding: 2rem 2rem 8rem 2rem;
+		max-width: 120rem;
+		margin: 0 auto;
+	}
+</style>

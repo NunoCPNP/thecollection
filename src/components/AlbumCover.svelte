@@ -1,22 +1,30 @@
 <script>
 	export let cover;
-	export let year;
 	export let alt;
-	export let id;
+	export let year = undefined;
+	export let id = undefined;
 </script>
 
 <div class="image-container">
+	{#if id}
 	<a href={id}>
 		<img src={cover} alt={`${alt} album cover`} />
 		{#if year}
 			<div class="year">{year}</div>
 		{/if}
 	</a>
+	{:else}
+		<img src={cover} alt={`${alt} album cover`} />
+		{#if year}
+			<div class="year">{year}</div>
+		{/if}
+	{/if}
 </div>
 
 <style>
 	a {
 		color: inherit;
+		cursor: pointer;
 	} 
 
 	.image-container {
@@ -24,7 +32,6 @@
 	}
 
 	.image-container img {
-		cursor: pointer;
 		width: 100%;
 		border-radius: 0.4rem;
 	}

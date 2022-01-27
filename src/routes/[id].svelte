@@ -2,9 +2,24 @@
 	import { page } from '$app/stores';
 	import { collection } from '../store/store';
 
-	let id = $page.params.id;
+	import CollectionItem from "../sections/CollectionItem.svelte"
 
-	let item =  $collection.filter(item => item.id == id)
+	let id = $page.params.id;
+	let item =  $collection.filter(item => item.id == id)[0]
 </script>
 
-<h1>{JSON.stringify(item, null, 2)}</h1>
+<svelte:head>
+	<title>TheCollection - Vinyl Records Collection</title>
+</svelte:head>
+
+<main>
+	<CollectionItem item={item} />
+</main>
+
+<style>
+	main {
+		padding: 2rem 2rem 8rem 2rem;
+		max-width: 120rem;
+		margin: 0 auto;
+	}
+</style>
