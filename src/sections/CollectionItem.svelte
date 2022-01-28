@@ -1,11 +1,11 @@
 <script>
     import AlbumCover from "../components/AlbumCover.svelte"
+    import { collection, collectionItemId } from '../store/store';
 
-    export let item
+    const item = $collection.filter((item) => item.id == $collectionItemId)[0]
 
     let labels = item.basic_information.labels
 
-    console.log("-->", item)
 </script>
 
 <div class="container">
@@ -32,6 +32,13 @@
 		display: grid;
         grid-gap: 2rem;
 		grid-template-columns: 1fr 2fr;
+        margin-top: 2rem;
+	}
+
+    @media only screen and (max-width: 480px) {
+		.container {
+			grid-template-columns: 1fr;
+		}
 	}
 
     .main-info {

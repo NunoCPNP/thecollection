@@ -1,19 +1,17 @@
+<script>
+	import { collectionItemId } from '../store/store';
+
+</script>
+
 <header>
 	<nav>
-		<div class="title">
-			<a href="/">
-				<h1>The Collection</h1>
-			</a>
+		<div class="title" on:click={() => collectionItemId.set(undefined)}>
+			<h1>The Collection</h1>
 		</div>
 	</nav>
 </header>
 
 <style>
-	a {
-		color: inherit;
-		text-decoration: none;
-	}
-
 	header {
 		background-color: var(--blackCoral);
 		margin-bottom: 1rem;
@@ -26,5 +24,6 @@
 	.title {
 		text-transform: uppercase;
 		font-size: var(--heading-5);
+		cursor: pointer;
 	}
 </style>

@@ -34,8 +34,8 @@
 <style>
 	.container {
 		display: grid;
-		grid-gap: 2rem;
 		grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+		grid-gap: 2rem;
 	}
 
 	.form-group {

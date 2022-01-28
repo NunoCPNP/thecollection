@@ -1,4 +1,6 @@
 <script>
+	import { collectionItemId } from "../store/store"
+
 	export let cover;
 	export let alt;
 	export let year = undefined;
@@ -6,32 +8,19 @@
 </script>
 
 <div class="image-container">
-	{#if id}
-	<a href={id}>
-		<img src={cover} alt={`${alt} album cover`} />
-		{#if year}
-			<div class="year">{year}</div>
-		{/if}
-	</a>
-	{:else}
-		<img src={cover} alt={`${alt} album cover`} />
-		{#if year}
-			<div class="year">{year}</div>
-		{/if}
+	<img src={cover} alt={`${alt} album cover`} on:click={() => collectionItemId.set(id)} />
+	{#if year}
+		<div class="year">{year}</div>
 	{/if}
 </div>
 
-<style>
-	a {
-		color: inherit;
-		cursor: pointer;
-	} 
-
+<style>	
 	.image-container {
 		position: relative;
 	}
-
+	
 	.image-container img {
+		cursor: pointer;
 		width: 100%;
 		border-radius: 0.4rem;
 	}
