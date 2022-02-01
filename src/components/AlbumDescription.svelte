@@ -1,18 +1,15 @@
 <script>
-    export let data 
+    import TrackList from "./TrackList.svelte"
 
-    console.log("DATA: ", data)
+    export let data 
 </script>
 
 <div>
-
     <div class="band-title">
         <h2>{data.artists[0].name}</h2>
         <h3>{data.title}</h3>
     </div>
-    
     <div class="container">
-    
         <div class="container-item">
             <div class="label">Label :</div>
             <div>
@@ -21,50 +18,44 @@
                 {/each}
             </div>
         </div>
-        
         <div class="container-item">
             <div class="label">Format :</div>
-            <div class="format">
-                <span>{data.formats[0].name}</span>
+            <div>
+                <span class="pr-s">{data.formats[0].name}</span>
                 {#each data.formats[0].descriptions as description}
-                    <span>{description}</span>
+                    <span class="pr-s">{description}</span>
                 {/each}
                 {#if data.formats[0].text}
                     <span>{data.formats[0].text}</span>
                 {/if}
             </div>
         </div>
-
         <div class="container-item">
             <div class="label">Country :</div>
             <div>{data.country}</div>
         </div>
-        
         <div class="container-item">
             <div class="label">Released :</div>
-            <div>{data.year}</div>
+            <div>{data.released_formatted}</div>
         </div>
-
         <div class="container-item">
             <div class="label">Genre :</div>
             <div>
                 {#each data.genres as genre}
-                    <span>{genre}</span>
+                    <span class="pr-s">{genre}</span>
                 {/each}
             </div>
         </div>
-
         <div class="container-item">
             <div class="label">Style :</div>
             <div>
                 {#each data.styles as style}
-                    <span>{style}</span>
+                    <span class="pr-s">{style}</span>
                 {/each}
             </div>
         </div>
-
     </div>
-        
+    <TrackList data={data} />
 </div>
 
 <style>
@@ -94,9 +85,5 @@
     .label {
         color: var(--shadowBlue);
         font-weight: 700;
-    }
-
-    .format span  {
-        padding-right: 0.5rem;    
     }
 </style>

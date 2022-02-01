@@ -71,6 +71,10 @@
 		color: var(--white);
 	}
 
+	:global(.pr-s) {
+		padding-right: 0.5rem;
+	}
+
 	main {
 		max-width: 120rem;
 		margin: auto;
