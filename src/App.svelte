@@ -71,6 +71,10 @@
 		color: var(--white);
 	}
 
+	:global(input[type="text"]) {
+		font-size: inherit;
+	}
+
 	main {
 		max-width: 120rem;
 		margin: auto;
