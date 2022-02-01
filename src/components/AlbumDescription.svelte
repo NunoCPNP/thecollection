@@ -14,7 +14,7 @@
     <div class="container">
     
         <div class="container-item">
-            <div>Label</div>
+            <div class="label">Label :</div>
             <div>
                 {#each data.labels as label}
                     <div>{label.name} - {label.catno}</div>
@@ -23,28 +23,30 @@
         </div>
         
         <div class="container-item">
-            <div>Format :</div>
-            <div>
+            <div class="label">Format :</div>
+            <div class="format">
                 <span>{data.formats[0].name}</span>
                 {#each data.formats[0].descriptions as description}
                     <span>{description}</span>
                 {/each}
-                <span>{data.formats[0].text}</span>
+                {#if data.formats[0].text}
+                    <span>{data.formats[0].text}</span>
+                {/if}
             </div>
         </div>
 
         <div class="container-item">
-            <div>Country :</div>
+            <div class="label">Country :</div>
             <div>{data.country}</div>
         </div>
         
         <div class="container-item">
-            <div>Released :</div>
+            <div class="label">Released :</div>
             <div>{data.year}</div>
         </div>
 
         <div class="container-item">
-            <div>Genre :</div>
+            <div class="label">Genre :</div>
             <div>
                 {#each data.genres as genre}
                     <span>{genre}</span>
@@ -53,7 +55,7 @@
         </div>
 
         <div class="container-item">
-            <div>Style :</div>
+            <div class="label">Style :</div>
             <div>
                 {#each data.styles as style}
                     <span>{style}</span>
@@ -68,17 +70,33 @@
 <style>
     .container {
         display: grid;
-        grid-gap: 0.5rem;
+        grid-gap: 0.8rem;
+        padding: 1rem;
     }
 
     .container-item {
         display: grid;
         grid-template-columns: auto 1fr;
+        grid-gap: 1rem;
+        align-items: center;
     }
 
     .band-title h2 {
         background-color: var(--blackCoral);
         padding: 0.2rem 1rem;
         border-radius: 0.5rem;
+    }
+
+    .band-title h3 {
+        padding: 1rem;
+    }
+
+    .label {
+        color: var(--shadowBlue);
+        font-weight: 700;
+    }
+
+    .format span  {
+        padding-right: 0.5rem;    
     }
 </style>

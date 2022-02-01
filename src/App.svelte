@@ -71,8 +71,8 @@
 		color: var(--white);
 	}
 
-	:global(input[type="text"]) {
-		font-size: inherit;
+	:global(input, select, textarea) {
+    	font-size: 16px;
 	}
 
 	main {
