@@ -59,7 +59,7 @@
 		border-bottom: 2px solid var(--eggShell);
 		color: var(--white);
 		outline: 0;
-		font-size: 1.3rem;
+		font-size: 1.6rem;
 		padding: 7px 0;
 		background: transparent;
 		transition: border-color 0.2s;

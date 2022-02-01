@@ -71,10 +71,6 @@
 		color: var(--white);
 	}
 
-	:global(input, select, textarea) {
-    	font-size: 16px;
-	}
-
 	main {
 		max-width: 120rem;
 		margin: auto;
